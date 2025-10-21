@@ -1,0 +1,4 @@
+node_modules
+.serverless
+pnpm-lock.yaml
+.env

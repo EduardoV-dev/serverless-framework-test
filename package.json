@@ -1,0 +1,22 @@
+{
+  "name": "my-first-sls-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --ext ts,json --exec 'sls offline'",
+    "deploy": "sls deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.17.1",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.156",
+    "@types/node": "^24.9.1",
+    "@types/serverless": "^3.12.27",
+    "nodemon": "^3.1.10",
+    "serverless-offline": "^14.4.0",
+    "ts-node": "^10.9.2"
+  }
+}
