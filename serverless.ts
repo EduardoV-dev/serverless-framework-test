@@ -1,4 +1,4 @@
-import fs from "fs";
+import { globSync } from "fs";
 import path from "path";
 
 import type { Serverless, Functions } from "serverless/aws";
@@ -20,9 +20,10 @@ export const slugify = (...args: string[]): string => {
 
 const loadHandlers = (): Functions => {
   const dirPath = path.resolve(__dirname, handlersDir);
-  const handlerFiles = fs
-    .readdirSync(dirPath)
-    .filter((file) => file.endsWith(".ts"));
+
+  const handlerFiles = globSync(`${handlersDir}/**/*.ts`).map((file) =>
+    file.replace(`${handlersDir}/`, ""),
+  );
 
   const handlers: Functions = {};
 
@@ -72,8 +73,6 @@ const loadHandlers = (): Functions => {
 
   return handlers;
 };
-
-loadHandlers();
 
 const configuration: Serverless = {
   org: "eduardovdev",
